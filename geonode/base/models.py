@@ -1077,6 +1077,18 @@ class ResourceBase(PolymorphicModel, PermissionLevelMixin, ItemBase):
         null=True,
         blank=True,
         help_text=extra_metadata_help_text)
+    
+    custom_md_help_text = _("a custom metadata field")
+    custom_md = models.TextField(
+        _("Custom Md"),
+        blank=True,
+        null=True,
+        help_text=custom_md_help_text)
+
+    @property
+    def raw_custom_md(self):
+        return self._remove_html_tags(self.custom_md)
+    
 
     objects = ResourceBaseManager()
 

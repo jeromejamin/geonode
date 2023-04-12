@@ -488,6 +488,7 @@ class ResourceBaseSerializer(
         self.fields['processed'] = serializers.BooleanField(read_only=True)
         self.fields['state'] = serializers.CharField(read_only=True)
         self.fields['sourcetype'] = serializers.CharField(read_only=True)
+        self.fields['raw_custom_md'] = serializers.CharField(read_only=True)
 
         self.fields['embed_url'] = EmbedUrlField(required=False)
         self.fields['thumbnail_url'] = ThumbnailUrlField(read_only=True)
@@ -532,7 +533,7 @@ class ResourceBaseSerializer(
             'raw_abstract', 'raw_purpose', 'raw_constraints_other',
             'raw_supplemental_information', 'raw_data_quality_statement', 'metadata_only', 'processed', 'state',
             'data', 'subtype', 'sourcetype', 'is_copyable',
-            'blob', "metadata", 'executions'
+            'blob', "metadata", 'executions', 'custom_md', 'raw_custom_md'
             # TODO
             # csw_typename, csw_schema, csw_mdsource, csw_insert_date, csw_type, csw_anytext, csw_wkt_geometry,
             # metadata_uploaded, metadata_uploaded_preserve, metadata_xml,

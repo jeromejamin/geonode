@@ -411,6 +411,11 @@ class ResourceBaseForm(TranslationModelForm):
         required=False,
         widget=TinyMCE())
 
+    custom_md = forms.CharField(
+        label=_("Custom Md"),
+        required=True,
+        widget=TinyMCE())
+
     owner = forms.ModelChoiceField(
         empty_label=_("Owner"),
         label=_("Owner"),
